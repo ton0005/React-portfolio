@@ -14,6 +14,7 @@ const projects = [
     description:
       "An animation web page for a bar, created with React, GSAP, and TailwindCSS for a visually engaging experience.",
     image: "/images/mojiyo.png",
+    bgColor: "bg-[#FFEFDB]",
     liveLink: "https://mojito-eta-two.vercel.app/",
     githubLink: "https://github.com/ton0005/mojito",
   },
@@ -32,6 +33,22 @@ const projects = [
     bgColor: "bg-[#FFE7EB]",
     liveLink: null,
     githubLink: "https://github.com/ton0005/COMP9030-Assignment-main",
+  },
+  {
+    id: "3d-portfolio",
+    title: "3D Interactive Portfolio - React & Three.js",
+    image: "/images/project4.png",
+    bgColor: "bg-[#E8F4FD]",
+    liveLink: "https://alice-ton-portfolio.vercel.app/",
+    githubLink: "https://github.com/thanhtruc3995/React-portfolio",
+  },
+  {
+    id: "java-app",
+    title: "Youtube Trender - Analyzing YouTube Trends with Java",
+    image: "/images/Project5.png",
+    bgColor: "bg-[#FFF3E8]",
+    liveLink: null,
+    githubLink: "https://github.com/ton0005/Java",
   },
 ];
 
@@ -100,6 +117,8 @@ const showcaseSection = () => {
   const rydeRef = useRef(null);
   const libraryRef = useRef(null);
   const ycDirectoryRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const javaRef = useRef(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -110,7 +129,7 @@ const showcaseSection = () => {
     );
 
     // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current, portfolioRef.current, javaRef.current];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -173,6 +192,26 @@ const showcaseSection = () => {
               <ProjectLinks
                 liveLink={projects[2].liveLink}
                 githubLink={projects[2].githubLink}
+              />
+            </div>
+            <div className="project" ref={portfolioRef}>
+              <div className={`image-wrapper ${projects[3].bgColor}`}>
+                <img src={projects[3].image} alt={projects[3].title} />
+              </div>
+              <h2>{projects[3].title}</h2>
+              <ProjectLinks
+                liveLink={projects[3].liveLink}
+                githubLink={projects[3].githubLink}
+              />
+            </div>
+            <div className="project" ref={javaRef}>
+              <div className={`image-wrapper ${projects[4].bgColor}`}>
+                <img src={projects[4].image} alt={projects[4].title} />
+              </div>
+              <h2>{projects[4].title}</h2>
+              <ProjectLinks
+                liveLink={projects[4].liveLink}
+                githubLink={projects[4].githubLink}
               />
             </div>
           </div>
